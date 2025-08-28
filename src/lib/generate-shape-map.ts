@@ -1,4 +1,5 @@
-type Grid = number[][];
+import type { QueensBoard } from "@/types/queens-board";
+import type { ShapeMap } from "@/types/shape-map";
 
 const DIRECTIONS = [
   [1, 0],
@@ -9,12 +10,12 @@ const DIRECTIONS = [
 
 const SKIP_CHANCE = 0.3;
 
-const isEmptyCell = (shapeMap: Grid, row: number, col: number): boolean => {
+const isEmptyCell = (shapeMap: ShapeMap, row: number, col: number): boolean => {
   const n = shapeMap[0].length;
   return row >= 0 && row < n && col >= 0 && col < n && shapeMap[row][col] === -1;
 };
 
-export const generateShapeMap = (board: number[]): number[][] => {
+export const generateShapeMap = (board: QueensBoard): ShapeMap => {
   const n = board.length;
   const shapeMap = Array.from({ length: n }, () => Array(n).fill(-1));
 

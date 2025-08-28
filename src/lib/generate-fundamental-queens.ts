@@ -1,7 +1,8 @@
 import { isValidPlacement } from "@/lib/is-valid-placement";
 import { BoardSymmetry } from "@/lib/board-symmetry";
+import type { QueensBoard } from "@/types/queens-board";
 
-const generateSymmetries = (board: number[]): number[][] => {
+const generateSymmetries = (board: QueensBoard): QueensBoard[] => {
   const rotate90 = BoardSymmetry.rotate90(board);
   const rotate180 = BoardSymmetry.rotate180(board);
   const rotate270 = BoardSymmetry.rotate270(board);
@@ -18,11 +19,11 @@ const generateSymmetries = (board: number[]): number[][] => {
   ];
 };
 
-export const generateFundamentalQueens = (n: number): number[][] => {
-  const results: number[][] = [];
+export const generateFundamentalQueens = (n: number): QueensBoard[] => {
+  const results: QueensBoard[] = [];
   const seen = new Set<string>();
 
-  const placeQueens = (row: number, board: number[]) => {
+  const placeQueens = (row: number, board: QueensBoard) => {
     if (row === n) {
       const solutionHash = board.join(",");
 

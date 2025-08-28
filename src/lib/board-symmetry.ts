@@ -1,5 +1,7 @@
+import type { QueensBoard } from "@/types/queens-board";
+
 export class BoardSymmetry {
-  static rotate90(board: number[]): number[] {
+  static rotate90(board: QueensBoard): QueensBoard {
     const n = board.length;
     const rotated = Array(n);
     board.forEach((col, row) => {
@@ -8,7 +10,7 @@ export class BoardSymmetry {
     return rotated;
   }
 
-  static rotate180(board: number[]): number[] {
+  static rotate180(board: QueensBoard): QueensBoard {
     const n = board.length;
     const rotated = Array(n);
     board.forEach((col, row) => {
@@ -17,7 +19,7 @@ export class BoardSymmetry {
     return rotated;
   }
 
-  static rotate270(board: number[]): number[] {
+  static rotate270(board: QueensBoard): QueensBoard {
     const n = board.length;
     const rotated = Array(n);
     board.forEach((col, row) => {
@@ -26,7 +28,7 @@ export class BoardSymmetry {
     return rotated;
   }
 
-  static reflectHorizontally(board: number[]): number[] {
+  static reflectHorizontally(board: QueensBoard): QueensBoard {
     const n = board.length;
     return board.map((col) => n - 1 - col);
   }
