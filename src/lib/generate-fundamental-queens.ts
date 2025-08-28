@@ -1,36 +1,20 @@
 import { isValidPlacement } from "@/lib/is-valid-placement";
-
-const reflectHorizontally = (board: number[], n: number): number[] => {
-  return board.map((col) => n - 1 - col);
-};
+import { BoardSymmetry } from "@/lib/board-symmetry";
 
 const generateSymmetries = (board: number[]): number[][] => {
-  const n = board.length;
-
-  const rotate90 = Array(n);
-  board.forEach((col, row) => {
-    rotate90[col] = n - 1 - row;
-  });
-
-  const rotate180 = Array(n);
-  board.forEach((col, row) => {
-    rotate180[n - 1 - row] = n - 1 - col;
-  });
-
-  const rotate270 = Array(n);
-  board.forEach((col, row) => {
-    rotate270[n - 1 - col] = row;
-  });
+  const rotate90 = BoardSymmetry.rotate90(board);
+  const rotate180 = BoardSymmetry.rotate180(board);
+  const rotate270 = BoardSymmetry.rotate270(board);
 
   return [
     board,
     rotate90,
     rotate180,
     rotate270,
-    reflectHorizontally(board, n),
-    reflectHorizontally(rotate90, n),
-    reflectHorizontally(rotate180, n),
-    reflectHorizontally(rotate270, n),
+    BoardSymmetry.reflectHorizontally(board),
+    BoardSymmetry.reflectHorizontally(rotate90),
+    BoardSymmetry.reflectHorizontally(rotate180),
+    BoardSymmetry.reflectHorizontally(rotate270),
   ];
 };
 
