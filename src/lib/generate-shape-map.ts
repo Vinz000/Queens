@@ -1,5 +1,7 @@
 import type { QueensBoard } from "@/types/queens-board";
 import type { ShapeMap } from "@/types/shape-map";
+import { randomInt } from "crypto";
+import { randomChoice } from "@/lib/random-choice";
 
 const DIRECTIONS = [
   [1, 0],
@@ -25,12 +27,12 @@ export const generateShapeMap = (board: QueensBoard): ShapeMap => {
   });
 
   while (activeCells.length > 0) {
-    const index = Math.floor(Math.random() * activeCells.length);
+    const index = randomInt(activeCells.length);
     const { row, col, queenId } = activeCells[index];
 
     if (Math.random() < SKIP_CHANCE) continue;
 
-    const [rowOffset, colOffset] = DIRECTIONS[Math.floor(Math.random() * DIRECTIONS.length)];
+    const [rowOffset, colOffset] = randomChoice(DIRECTIONS);
     const newRow = row + rowOffset;
     const newCol = col + colOffset;
 
