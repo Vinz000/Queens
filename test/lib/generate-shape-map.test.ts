@@ -3,12 +3,12 @@ import { generateShapeMap } from "@/lib/generate-shape-map";
 
 describe("generateShapeMap", () => {
   const board = [0, 5, 3, 6, 9, 2, 8, 1, 4, 7];
-  const n = board.length;
+  const size = board.length;
 
   it("should create an nxn array", () => {
     const shapeMap = generateShapeMap(board);
-    expect(shapeMap.length).toBe(n);
-    shapeMap.forEach((row) => expect(row.length).toBe(n));
+    expect(shapeMap.length).toBe(size);
+    shapeMap.forEach((row) => expect(row.length).toBe(size));
   });
 
   it("should fill the entire grid (no -1 values)", () => {
@@ -23,14 +23,14 @@ describe("generateShapeMap", () => {
   it("should contain at least n different queen ids", () => {
     const shapeMap = generateShapeMap(board);
     const ids = new Set(shapeMap.flat());
-    expect(ids.size).toBe(n);
+    expect(ids.size).toBe(size);
   });
 
   it("should only contain ids in the range 0->n-1", () => {
     const shapeMap = generateShapeMap(board);
     shapeMap.flat().forEach((id) => {
       expect(id).toBeGreaterThanOrEqual(0);
-      expect(id).toBeLessThan(n);
+      expect(id).toBeLessThan(size);
     });
   });
 
@@ -41,7 +41,7 @@ describe("generateShapeMap", () => {
     });
   });
 
-  it("should generate different maps on different runs", () => {
+  it("should likely generate different maps on different runs", () => {
     const map1 = generateShapeMap(board);
     const map2 = generateShapeMap(board);
 

@@ -9,6 +9,6 @@ describe("randomChoice", () => {
   });
 
   it("should throw an error when passing empty array", () => {
-    expect(() => randomChoice([])).toThrow();
+    expect(() => randomChoice([])).toThrow("Cannot chose from an empty array");
   });
 });
