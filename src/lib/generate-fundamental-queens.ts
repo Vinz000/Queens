@@ -19,12 +19,12 @@ const generateSymmetries = (board: QueensBoard): QueensBoard[] => {
   ];
 };
 
-export const generateFundamentalQueens = (n: number): QueensBoard[] => {
+export const generateFundamentalQueens = (size: number): QueensBoard[] => {
   const results: QueensBoard[] = [];
   const seen = new Set<string>();
 
   const placeQueens = (row: number, board: QueensBoard) => {
-    if (row === n) {
+    if (row === size) {
       const solutionHash = board.join(",");
 
       if (seen.has(solutionHash)) return;
@@ -38,7 +38,7 @@ export const generateFundamentalQueens = (n: number): QueensBoard[] => {
       return;
     }
 
-    for (let col = 0; col < n; col++) {
+    for (let col = 0; col < size; col++) {
       if (isValidPlacement(board, row, col)) {
         board[row] = col;
         placeQueens(row + 1, board);
@@ -47,7 +47,7 @@ export const generateFundamentalQueens = (n: number): QueensBoard[] => {
     }
   };
 
-  placeQueens(0, Array(n).fill(-1));
+  placeQueens(0, Array(size).fill(-1));
 
   return results;
 };

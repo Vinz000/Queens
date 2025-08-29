@@ -18,8 +18,8 @@ const isEmptyCell = (shapeMap: ShapeMap, row: number, col: number): boolean => {
 };
 
 export const generateShapeMap = (board: QueensBoard): ShapeMap => {
-  const n = board.length;
-  const shapeMap = Array.from({ length: n }, () => Array(n).fill(-1));
+  const size = board.length;
+  const shapeMap = Array.from({ length: size }, () => Array(size).fill(-1));
 
   const activeCells = board.map((col, row) => {
     shapeMap[row][col] = row;
