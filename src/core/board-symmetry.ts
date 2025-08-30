@@ -10,7 +10,7 @@ export class BoardSymmetry {
     return rotated;
   }
 
-  static rotate180(board: number[]): number[] {
+  static rotate180(board: QueensBoard): QueensBoard {
     const size = board.length;
     const rotated = Array(size);
     board.forEach((col, row) => {
@@ -19,7 +19,7 @@ export class BoardSymmetry {
     return rotated;
   }
 
-  static rotate270(board: number[]): number[] {
+  static rotate270(board: QueensBoard): QueensBoard {
     const size = board.length;
     const rotated = Array(size);
     board.forEach((col, row) => {
@@ -28,7 +28,7 @@ export class BoardSymmetry {
     return rotated;
   }
 
-  static reflectHorizontally(board: number[]): number[] {
+  static reflectHorizontally(board: QueensBoard): QueensBoard {
     const size = board.length;
     return board.map((col) => size - 1 - col);
   }
