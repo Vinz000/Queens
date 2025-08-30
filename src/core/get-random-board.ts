@@ -17,7 +17,7 @@ const getBaseBoard = (size: number, fundamentalBoards: Record<number, QueensBoar
 const applyRandomSymmetry = (baseBoard: QueensBoard): QueensBoard => {
   let board = randomChoice(SYMMETRIES)(baseBoard);
   if (Math.random() < 0.5) {
-    board = BoardSymmetry.reflectHorizontally(board);
+    board = BoardSymmetry.reflectThroughYAxis(board);
   }
   return board;
 };

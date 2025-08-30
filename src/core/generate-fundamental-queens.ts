@@ -12,10 +12,10 @@ const generateSymmetries = (board: QueensBoard): QueensBoard[] => {
     rotate90,
     rotate180,
     rotate270,
-    BoardSymmetry.reflectHorizontally(board),
-    BoardSymmetry.reflectHorizontally(rotate90),
-    BoardSymmetry.reflectHorizontally(rotate180),
-    BoardSymmetry.reflectHorizontally(rotate270),
+    BoardSymmetry.reflectThroughYAxis(board),
+    BoardSymmetry.reflectThroughYAxis(rotate90),
+    BoardSymmetry.reflectThroughYAxis(rotate180),
+    BoardSymmetry.reflectThroughYAxis(rotate270),
   ];
 };
 

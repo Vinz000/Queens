@@ -20,7 +20,7 @@ describe("BoardSymmetry", () => {
   });
 
   it("should reflect horizontally", () => {
-    const reflected = BoardSymmetry.reflectHorizontally(board);
+    const reflected = BoardSymmetry.reflectThroughYAxis(board);
     expect(reflected).toEqual([6, 1, 5, 2, 0, 3, 7, 4]);
   });
 });

@@ -28,7 +28,7 @@ export class BoardSymmetry {
     return rotated;
   }
 
-  static reflectHorizontally(board: QueensBoard): QueensBoard {
+  static reflectThroughYAxis(board: QueensBoard): QueensBoard {
     const size = board.length;
     return board.map((col) => size - 1 - col);
   }
