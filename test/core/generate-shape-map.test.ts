@@ -1,9 +1,18 @@
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, beforeEach, vi, afterEach, type MockInstance } from "vitest";
 import { generateShapeMap } from "@/core/generate-shape-map";
 
 describe("generateShapeMap", () => {
   const board = [0, 5, 3, 6, 9, 2, 8, 1, 4, 7];
   const size = board.length;
+  let spy: MockInstance;
+
+  beforeEach(() => {
+    spy = vi.spyOn(Math, "random").mockReturnValue(0.123);
+  });
+
+  afterEach(() => {
+    spy.mockRestore();
+  });
 
   it("should create an nxn array", () => {
     const shapeMap = generateShapeMap(board);
@@ -41,7 +50,7 @@ describe("generateShapeMap", () => {
     });
   });
 
-  it("should likely generate different maps on different runs", () => {
+  it("should generate different maps on different runs", () => {
     const map1 = generateShapeMap(board);
     const map2 = generateShapeMap(board);
 

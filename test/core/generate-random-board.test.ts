@@ -1,5 +1,5 @@
 import { getRandomBoard } from "@/core/get-random-board";
-import { describe, expect, it } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi, type MockInstance } from "vitest";
 
 describe("getRandomBoard", () => {
   const fundamentalBoards = {
@@ -12,6 +12,15 @@ describe("getRandomBoard", () => {
       [0, 4, 6, 9, 3, 1, 8, 2, 5, 7],
     ],
   };
+  let spy: MockInstance;
+
+  beforeEach(() => {
+    spy = vi.spyOn(Math, "random").mockReturnValue(0.123);
+  });
+
+  afterEach(() => {
+    spy.mockRestore();
+  });
 
   it("should throw an error if no solutions for a given size", () => {
     expect(() => getRandomBoard(5, fundamentalBoards)).toThrow("No fundamental solutions for size 5");
@@ -26,7 +35,7 @@ describe("getRandomBoard", () => {
     expect(Array.isArray(board.shapeMap)).toBe(true);
   });
 
-  it("should likely produce different results", () => {
+  it("should produce different results", () => {
     const board1 = getRandomBoard(10, fundamentalBoards);
     const board2 = getRandomBoard(10, fundamentalBoards);
     expect(board1).not.toEqual(board2);
