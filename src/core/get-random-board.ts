@@ -1,8 +1,8 @@
 import type { GameBoard } from "@/types/game-board";
 import type { QueensBoard } from "@/types/queens-board";
-import { randomChoice } from "@/lib/random-choice";
-import { BoardSymmetry } from "@/lib/board-symmetry";
-import { generateShapeMap } from "@/lib/generate-shape-map";
+import { randomChoice } from "@/utils/random-choice";
+import { BoardSymmetry } from "@/core/board-symmetry";
+import { generateShapeMap } from "@/core/generate-shape-map";
 
 const SYMMETRIES = [(b: QueensBoard) => b, BoardSymmetry.rotate90, BoardSymmetry.rotate180, BoardSymmetry.rotate270];
 

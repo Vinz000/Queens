@@ -1,4 +1,4 @@
-import { getRandomBoard } from "@/lib/get-random-board";
+import { getRandomBoard } from "@/core/get-random-board";
 import { describe, expect, it } from "vitest";
 
 describe("getRandomBoard", () => {

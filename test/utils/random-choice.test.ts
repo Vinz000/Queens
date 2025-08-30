@@ -1,4 +1,4 @@
-import { randomChoice } from "@/lib/random-choice";
+import { randomChoice } from "@/utils/random-choice";
 import { describe, expect, it } from "vitest";
 
 describe("randomChoice", () => {

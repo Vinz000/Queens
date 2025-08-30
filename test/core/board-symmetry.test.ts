@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { BoardSymmetry } from "@/lib/board-symmetry";
+import { BoardSymmetry } from "@/core/board-symmetry";
 
 describe("BoardSymmetry", () => {
   const board = [1, 6, 2, 5, 7, 4, 0, 3];

@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { generateShapeMap } from "@/lib/generate-shape-map";
+import { generateShapeMap } from "@/core/generate-shape-map";
 
 describe("generateShapeMap", () => {
   const board = [0, 5, 3, 6, 9, 2, 8, 1, 4, 7];

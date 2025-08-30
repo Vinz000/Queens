@@ -1,7 +1,7 @@
 import type { QueensBoard } from "@/types/queens-board";
 import type { ShapeMap } from "@/types/shape-map";
 import { randomInt } from "crypto";
-import { randomChoice } from "@/lib/random-choice";
+import { randomChoice } from "@/utils/random-choice";
 
 const DIRECTIONS = [
   [1, 0],

@@ -1,5 +1,5 @@
-import { isValidPlacement } from "@/lib/is-valid-placement";
-import { BoardSymmetry } from "@/lib/board-symmetry";
+import { isValidPlacement } from "@/core/is-valid-placement";
+import { BoardSymmetry } from "@/core/board-symmetry";
 import type { QueensBoard } from "@/types/queens-board";
 
 const generateSymmetries = (board: QueensBoard): QueensBoard[] => {

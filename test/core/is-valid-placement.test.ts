@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { isValidPlacement } from "@/lib/is-valid-placement";
+import { isValidPlacement } from "@/core/is-valid-placement";
 
 describe("isValidPlacement", () => {
   it("should allow first queen anywhere", () => {
